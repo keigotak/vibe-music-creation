@@ -208,10 +208,11 @@ J-core用のミックスバランス:
 - **Intro/Outro**: フィルターで暗く（`add_filter_sweep` direction=down）
 - **Breakdown→Buildup2**: ボリュームフェード（`add_volume_fade` fade_type=in）
 
-### Phase 7: 確認
+### Phase 7: 確認 & レビュー
 1. `get_project_table` で構成表を表示
 2. `fire_scene` で各シーンを試聴提案
-3. 調整の要望を聞く
+3. **music-reviewer エージェントでセルフレビュー**を実行し、問題があれば修正
+4. 調整の要望を聞く
 
 ## 注意点
 - MCP高レベルツール (`create_drum_track` 等) はサイレント失敗するので、トラック作成はOSC直接
