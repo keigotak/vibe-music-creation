@@ -1,54 +1,24 @@
-# Vibe Music Creation - Ableton MCP Project
+# Vibe Music Creation
 
-## Overview
-Claude CodeからAbleton Liveを操作して音楽制作を行うプロジェクト。
-AbletonOSC (OSC通信) + MCP Server 経由でAbleton Liveを制御する。
+Claude CodeからAbleton Live / Strudelで音楽制作を行うプロジェクト。
+Ableton: AbletonOSC + MCP Server経由で制御。Strudel: ブラウザ上ライブコーディング。
 
-## Architecture
+## クイックリファレンス
+- 接続確認: `ableton_connect`
+- ポート競合: `netstat -ano | findstr 11001`（PowerShell）
+- Strudel: https://strudel.cc/ にコードをペースト → `Ctrl+Enter`
 
-### MCP Server
-- ソース: `/mnt/c/Users/roomt/Documents/Projects/AbletonMCP/src/mcp_server.py`
-- 実行: Windows版Python (`.venv/Scripts/python.exe`)
-- プロトコル: stdio経由のMCP
+## 詳細ドキュメント
+- アーキテクチャ・接続・トラブルシューティング: @docs/architecture.md
+- 音楽理論リファレンス: @docs/music-theory.md
+- Making Music 74戦略: @docs/making-music.md
+- オートメーション機能: @docs/automation.md
+- デバイス/パラメータマップ: @docs/device-params.md
+- Strudelリファレンス: @docs/strudel-reference.md
+- ジャンル別プリセット: @docs/genre-presets.md
+- 落とし穴・注意事項: @docs/gotchas.md
 
-### AbletonOSC (Remote Script)
-- 場所: `C:\ProgramData\Ableton\Live 12 Suite\Resources\MIDI Remote Scripts\AbletonOSC\`
-- ポート設定 (`abletonosc/constants.py`):
-  - `OSC_LISTEN_PORT = 11000` (Ableton側の受信ポート)
-  - `OSC_RESPONSE_PORT = 11001` (Python側の受信ポート)
-- ログ: `AbletonOSC/logs/abletonosc.log` で動作確認可能
-
-### OSC通信フロー
-```
-MCP Server (Python) --[UDP:11000]--> AbletonOSC (Ableton内)
-MCP Server (Python) <--[UDP:11001]-- AbletonOSC (Ableton内)
-```
-
-## Troubleshooting
-
-### 接続できない場合のチェックリスト
-1. Ableton Liveが起動しているか
-2. Preferences > Link, Tempo & MIDI > Control Surface に AbletonOSC が設定されているか
-3. **ポート競合チェック** (最も多い原因):
-   ```powershell
-   netstat -ano | findstr 11001
-   ```
-   複数プロセスが11001を使っている場合、古いPythonプロセスを終了する:
-   ```powershell
-   Get-Process -Id <PID> | Select-Object ProcessName,Id
-   Stop-Process -Id <PID> -Force
-   ```
-4. 古いプロセスを終了した場合、Claude Codeの再起動が必要（MCPサーバーも再起動される）
-
-### 接続確認
-- `ableton_connect` でモックモードでなく接続されればOK
-- AbletonOSCログ末尾で最新のOSC通信を確認可能
-
-## Music Theory Reference
-
-コード進行提案やメロディ作成時に参照する音楽理論の基礎知識。
-詳細は [docs/music-theory.md](docs/music-theory.md) を参照。
-制作戦略は [docs/making-music.md](docs/making-music.md) を参照（Dennis DeSantis「Making Music」74パターン）。
+## 音楽理論クイックリファレンス
 
 ### ダイアトニックコード（Cメジャー基準）
 | 度数 | セブンス | 機能 |
@@ -103,3 +73,10 @@ D → SD は避ける（逆行）
 - Lo-Fi Hip Hop系の制作が多い
 - コード進行提案時は度数表記（ローマ数字）と具体的なコード名の両方を記載する
 - テンションコードの構成音も併記すると理解しやすい
+
+## コンパクション時の保持ルール
+コンパクション時は以下を必ず保持すること:
+- 変更したファイルの完全なリスト
+- 現在のタスクの目的と進捗
+- Ableton接続状態（接続済み/未接続）
+- 作業中のトラック構成（トラック名、シーン名）
