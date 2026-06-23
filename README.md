@@ -1,7 +1,10 @@
 # Vibe Music Creation
 
-Produce music in Ableton Live through conversation with Claude Code.
-Control Ableton via AbletonOSC + MCP Server — build tracks by chatting.
+An MCP-based tool-using agent workflow for controlling Ableton Live through Claude Code.
+
+This project explores how LLM agents can interact with external creative software via MCP tools. Claude Code communicates with a Python MCP server, which sends OSC commands to Ableton Live through AbletonOSC.
+
+The goal is to study tool-use, external environment control, and interactive agent workflows in a concrete creative domain.
 
 Claude Code から Ableton Live を操作して音楽制作を行うプロジェクト。
 AbletonOSC + MCP Server 経由で、対話しながらトラックを組み上げていく。
