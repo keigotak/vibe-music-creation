@@ -26,6 +26,8 @@
 | 2026-03-22 | Strudel対応を追加 | Ableton不要でブラウザだけで音楽制作・実験可能 | Ableton MCPのみ |
 | 2026-03-22 | get_device_paramsをquery_rawベースに改修 | queryメソッドのタイムアウトで失敗するケースを解消 | 従来のquery方式のみ |
 | 2026-03-22 | トラック作成にsleep追加 | fire-and-forgetのOSC送信後、Ableton側の反映を待つ必要がある | sleep なし(不安定) |
+| 2026-07-05 | レビューエージェントを数値基準+出力フォーマット付きに強化、music-reviewerにMCP読み取りツールを付与 | 従来は抽象的な指摘に留まり品質向上に繋がりにくかった。自力でプロジェクト状態を取得できず | 薄いプロンプトのまま運用 |
+| 2026-07-05 | 制作スキルに「打ち込み前の設計工程」を追加（ボイスリーディング表・モチーフ設計・ハーモニー整合表・ゲイン設計） | 生成後の修正より生成前の設計の方が音楽の質に効く | レビューでの事後修正のみ |
 
 ## 意外な発見
 
@@ -49,4 +51,6 @@
 - Strudelサンプル楽曲拡充（lofi-chill-rain, lofi-jazzy-night, ambient-drift, jcore-kawaii）
 - ジャンル別プリセットドキュメント（docs/genre-presets.md）
 - MCP Server改善（get_device_params バッチ取得、トラック作成のタイミング修正）
-- 制作スキルにレビューエージェント自動呼び出しを統合
+- 制作スキルにレビューエージェント自動呼び出しを統合（※create-lofi は2026-07-05に追加。当初は未統合だった）
+- レビュー体制強化: music-reviewer/strudel-reviewer を数値基準チェックリスト+3段階出力（🔴🟡🟢）に刷新、.codex側も同期（2026-07-05）
+- strudel-reference.md に実作品で使用済みの未記載関数を追記（nudge/velocity/struct/crackle/swingBy/late/early、ゲイン設計目安）（2026-07-05）
