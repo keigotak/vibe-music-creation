@@ -208,10 +208,13 @@ J-core用のミックスバランス:
 - **Intro/Outro**: フィルターで暗く（`add_filter_sweep` direction=down）
 - **Breakdown→Buildup2**: ボリュームフェード（`add_volume_fade` fade_type=in）
 
-### Phase 7: 確認 & レビュー
+### Phase 7: 確認 & セルフレビュー
 1. `get_project_table` で構成表を表示
-2. `fire_scene` で各シーンを試聴提案
-3. **music-reviewer エージェントでセルフレビュー**を実行し、問題があれば修正
+2. **music-reviewer エージェントでセルフレビュー**:
+   - プロンプトに「意図したコード進行（度数+コード名）」「各トラックの役割」「`get_full_project_analysis` の出力」を含めて起動
+   - 🔴 Critical は必ず修正し、修正後に再レビュー（🔴が無くなるまで）
+   - 🟡 Improvement は費用対効果を判断して適用
+3. `fire_scene` で各シーンを試聴提案
 4. 調整の要望を聞く
 
 ## 注意点
