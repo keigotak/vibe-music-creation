@@ -58,6 +58,7 @@ Claude Code から `ableton_connect` を実行し、Ableton Live に接続でき
 
 | Slash Command | Description / 説明 |
 |---|---|
+| `/create-lofi` | Produce a Lo-Fi Hip Hop track from scratch / Lo-Fi Hip Hop トラックをゼロから制作 |
 | `/create-jcore` | Produce a J-core (Japanese Hardcore) track from scratch / J-core トラックをゼロから制作 |
 | `/create-strudel` | Generate Strudel live coding patterns by genre / ジャンル別にStrudelパターンを生成 |
 
@@ -93,6 +94,7 @@ EDM, House, Techno, DnB, Hip Hop, Trap, Lo-Fi, Ambient, Pop
 │                                    # MCP Server 接続設定
 ├── .claude/
 │   ├── commands/                    # Slash command definitions / スラッシュコマンド定義
+│   │   ├── create-lofi.md           # Lo-Fi Hip Hop production / Lo-Fi Hip Hop 制作
 │   │   ├── create-jcore.md          # J-core production / J-core 制作
 │   │   ├── create-strudel.md        # Strudel pattern generation / Strudelパターン生成
 │   │   ├── delete-empty-tracks.md   # Delete empty tracks / 空トラック削除
@@ -102,13 +104,14 @@ EDM, House, Techno, DnB, Hip Hop, Trap, Lo-Fi, Ambient, Pop
 │       ├── music-reviewer.md        # Music production reviewer / 音楽制作レビュー
 │       └── strudel-reviewer.md      # Strudel pattern reviewer / Strudelパターンレビュー
 ├── strudel/                         # Strudel patterns / Strudelパターン
-│   └── boombap-guru.js              # Boom bap - Gang Starr/Guru style
+│   └── README.md                    # Pattern catalog / パターン一覧（全パターンの表）
 ├── PLANS.md                         # Milestone plans / マイルストーン計画
 └── docs/
     ├── architecture.md              # Architecture & troubleshooting / アーキテクチャ
     ├── music-theory.md              # Music theory reference / 音楽理論リファレンス
     ├── making-music.md              # Making Music 74 strategies / Making Music 74戦略 要約
     ├── strudel-reference.md         # Strudel syntax reference / Strudel構文リファレンス
+    ├── genre-presets.md             # Genre presets / ジャンル別プリセット
     ├── automation.md                # Automation features / オートメーション機能
     ├── device-params.md             # Device & parameter map / デバイス/パラメータマップ
     └── gotchas.md                   # Known issues & pitfalls / 落とし穴・注意事項
@@ -133,6 +136,8 @@ EDM, House, Techno, DnB, Hip Hop, Trap, Lo-Fi, Ambient, Pop
 - [Music Theory Reference / 音楽理論リファレンス](docs/music-theory.md) — Scales, chord progressions, voicings / スケール、コード進行、ボイシング
 - [Making Music 74 Strategies / Making Music 74戦略](docs/making-music.md) — Production pattern catalog / 制作パターン集
 - [Strudel Reference / Strudelリファレンス](docs/strudel-reference.md) — Strudel syntax, effects, advanced patterns / 構文・エフェクト・高度なテクニック
+- [Genre Presets / ジャンル別プリセット](docs/genre-presets.md) — Track setups, BPM, progressions per genre / ジャンル別のトラック構成・BPM・進行
+- [Strudel Patterns / Strudelパターン一覧](strudel/README.md) — Catalog of generated patterns / 生成済みパターンのカタログ
 - [Automation Features / オートメーション機能](docs/automation.md) — Clip envelope automation / クリップエンベロープによるオートメーション
 - [Device Parameter Map / デバイスパラメータマップ](docs/device-params.md) — Parameter reference for Lo-Fi projects / Lo-Fi プロジェクト用パラメータ一覧
 - [Known Issues / 落とし穴](docs/gotchas.md) — Pitfalls and workarounds / 既知の問題と対処法
