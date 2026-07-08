@@ -83,6 +83,7 @@ EDM, House, Techno, DnB, Hip Hop, Trap, Lo-Fi, Ambient, Pop
 | `/delete-empty-tracks` | Bulk-delete empty tracks with no clips / クリップのない空トラックを一括削除 |
 | `/extend-clip-bars` | Extend a MIDI clip to a specified bar count / MIDIクリップを指定小節数に延長 |
 | `/record-to-arrangement` | Record Session View scenes into Arrangement View / Session View のシーンを Arrangement View に録音 |
+| `/strudel-to-ableton` | Import Strudel patterns into Ableton clips as MIDI / StrudelパターンをMIDI化してAbletonクリップに流し込む |
 
 ## Project Structure / プロジェクト構成
 
@@ -105,6 +106,9 @@ EDM, House, Techno, DnB, Hip Hop, Trap, Lo-Fi, Ambient, Pop
 │       └── strudel-reviewer.md      # Strudel pattern reviewer / Strudelパターンレビュー
 ├── strudel/                         # Strudel patterns / Strudelパターン
 │   └── README.md                    # Pattern catalog / パターン一覧（全パターンの表）
+├── scripts/
+│   ├── lint_strudel.py              # Static checks for patterns / パターン静的チェック
+│   └── strudel_to_notes.py          # Strudel → MIDI note converter / Strudel→MIDIノート変換
 ├── PLANS.md                         # Milestone plans / マイルストーン計画
 └── docs/
     ├── architecture.md              # Architecture & troubleshooting / アーキテクチャ
