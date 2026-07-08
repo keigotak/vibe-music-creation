@@ -31,6 +31,15 @@
 ## デバイス名の差異
 - Live 12では `Chorus` → `Chorus-Ensemble` にリネームされている
 
+## ブラウザAPI（/live/browser/get/items, /live/track/load/device）
+- `get/items` の引数は階層ごとに分割: `["sounds", "Bass"]`（`["sounds/Bass"]` は unknown_category）
+- トップカテゴリは小文字（`drums`, `sounds`...）だが、`load/device` のパスは**大文字始まり + `/` 区切り**: `"Drums/Lo-Fi Tech Kit.adg"`, `"Sounds/Bass/Sub Mellow.adg"`
+- 新規MIDIトラックはユーザーテンプレートのデフォルト音源（E-Piano等）付きで作られることがある → 差し替えは `/live/track/delete/device [track, 0]` してからロード
+
+## ポート競合の掃除
+- ポート11001を複数のPythonが掴んでいる場合、**現セッションのMCPサーバーもその中にいる**（開始時刻では見分けられない）
+- 安全な手順: 11001を掴むPythonを**全部**終了 → `/mcp` で ableton-agent を reconnect（Claude Code全体の再起動は不要）
+
 ## Strudel
 - drum-machinesはデフォルト読み込み済み。`samples('github:...')` は不要、`.bank("EmuSP12")` で直接使える
 - 同じエフェクトを2回書くと後者で上書きされる（スタックされない）

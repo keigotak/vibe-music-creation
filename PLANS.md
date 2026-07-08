@@ -40,7 +40,7 @@
 ## 今後の予定
 
 - [ ] `/review-strudel` スラッシュコマンド: 既存パターン単体のレビュー入口（引数=ファイルパス、省略時は最新）
-- [ ] Strudelブリッジの拡張: `n().scale()` / `.add()` / ユークリッド `(n,k)` 対応、`/strudel-to-ableton` の実機検証
+- [ ] Strudelブリッジの拡張: `n().scale()` / `.add()` / ユークリッド `(n,k)` 対応
 - [ ] `/update-device-map` スキル: `get_full_project_analysis` から docs/device-params.md を自動再生成
 - [ ] ジャンル拡充: genre-presets.md と create-strudel の対応ジャンル同期 + City Pop / Jazz-hop 等の追加
 
@@ -62,3 +62,4 @@
 - Strudelパターンのカタログ作成（strudel/README.md）+ README.md の陳腐化修正（/create-lofi、genre-presets.md リンク等）（2026-07-08）
 - Strudel静的チェックスクリプト（scripts/lint_strudel.py）+ strudel-reviewer/create-strudel への組み込み、.codex側も同期（2026-07-08）
 - Strudel → Ableton ブリッジ v1: ミニノーテーションパーサー（scripts/strudel_to_notes.py、自己テスト13ケース）+ `/strudel-to-ableton` コマンド（2026-07-08）
+- ブリッジ実機検証: lofi-sunset-walk を4トラック/111ノートでインポートし読み戻し完全一致、Lo-Fi Tech Kit + Sub Mellow で再生確認（2026-07-08）
